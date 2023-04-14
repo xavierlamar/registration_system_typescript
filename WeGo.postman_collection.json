@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "59f45443-1125-411a-bec6-edaa2c54128c",
+		"name": "WeGo",
+		"description": "APIs concerning for the creation of WeGo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22050088"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\":\"Asena\",\n  \"userName\":\"xavier\",\n  \"phoneNumber\":\"651601108\",\n  \"address\":\"Emanan\",\n  \"password\":\"xavier\",\n  \"passwordConfirmation\":\"xavier\",\n  \"email\":\"xavierlamar178@gmail.com\",\n  \"organizationName\":\"Mercury-Sarl\",\n  \"sector\":\"Private\",\n  \"country\":\"Cameroon\",\n  \"city\":\"Yaounde\",\n  \"numberOfEmployees\":\"10\",\n  \"subscriptionBundle\":\"Gold\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "This POST request is to register or create and account in WeGo"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/users/verify/:id/:verificationCode",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"verify",
+								":id",
+								":verificationCode"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6438391cc3d9c5fdd3a741f1"
+								},
+								{
+									"key": "verificationCode",
+									"value": "F37yCEC8rCdW_VJSc0p9z"
+								}
+							]
+						},
+						"description": "Verify user's email address with the \"id\" and \"verification code\".The codes will be send to your email address"
+					},
+					"response": []
+				},
+				{
+					"name": "Request reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"xavierlamar17@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/forgotpassword",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"forgotpassword"
+							]
+						},
+						"description": "StartFragment\n\nSend forgot password reset password code and id to your email address of the user\n\nEndFragme"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"xavierlamar17@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"passwordConfirmation\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/resetpassword/:id/:passwordResetCode",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"resetpassword",
+								":id",
+								":passwordResetCode"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6438391cc3d9c5fdd3a741f1"
+								},
+								{
+									"key": "passwordResetCode",
+									"value": "VI95QyS2DFFgWZOxmNMeS"
+								}
+							]
+						},
+						"description": "StartFragment\n\nReset password with params got from the email of the previous request which are \"id\" and \"reset password code\" and you can now reset your password .\n\nEndFragment"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
